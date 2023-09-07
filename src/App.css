@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+body {
+    background-color: #00C4FF;
+    font-family: 'Lora', sans-serif;
+}
+.App {
+    padding: 0 7vw;
+}
+
+/* TODO: Add theme for additional bg colors
+- #f1f785
+- #ffffba
+- #baffc9
+- #9ea1d4
+*/
