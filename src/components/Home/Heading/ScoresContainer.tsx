@@ -31,33 +31,3 @@ export default function ScoresContainer({ Icon, value }: IScoresContainer) {
     </Box>
   );
 }
-
-// const ExclusiveButton = styled(Button)({
-//   color: "inherit",
-//   fontSize: "17px",
-//   textTransform: "none",
-//   fontWeight: "400",
-//   border: "1px solid black",
-//   borderRadius: "2em",
-//   margin: "0 0.4em",
-//   width: "115px",
-//   "&:hover": {
-//     filter: "brightness(0.5)",
-//     background: "transparent",
-//   },
-//   "&:active": {
-//     background: "none",
-//   },
-// });
-
-// const PageButton = styled(Button)({
-//   color: "inherit",
-//   fontSize: "17px",
-//   textTransform: "none",
-//   fontWeight: "400",
-//   background: "none",
-//   transition: "color 0.3s ease-in-out",
-//   "&:hover": {
-//     color: "crimson",
-//   },
-// });

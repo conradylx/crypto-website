@@ -15,27 +15,34 @@ const WhiteStyledTypography = styled(Typography)({
   paddingBottom: ".5em",
 });
 
-const ButtonWithArrow = styled(Button)({
-  backgroundColor: "yellow",
+const ButtonWithArrow = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.light,
   borderRadius: "35px",
   padding: "1.1em 2.1em",
   color: "inherit",
   textTransform: "none",
   fontSize: "1.1vw",
   fontWeight: "600",
-});
+  "&:hover": {
+    filter: "brightness(.9)",
+    backgroundColor: theme.palette.primary.light,
+  },
+  "&:active": {
+    backgroundColor: theme.palette.primary.light,
+  },
+}));
 
 function HeadingLeft() {
   return (
     <Box width="55%">
       <Box sx={{ borderBottom: "1px solid white", width: "90%" }}>
-        <Typography sx={{ fontSize: "1.3vw" }}>
+        <Typography sx={{ fontSize: "1.6vw" }}>
           The smart alternative for your everyday finances
         </Typography>
         <WhiteStyledTypography>
           Grow your money the modern way
         </WhiteStyledTypography>
-        <Typography sx={{ fontSize: "1.2vw" }}>
+        <Typography sx={{ fontSize: "1.3vw" }}>
           Grow your money, buy and trade crypto and earn{" "}
           <Typography
             color={theme.palette.primary.light}
@@ -52,7 +59,7 @@ function HeadingLeft() {
             margin: "10vh 0 6vh 0",
           }}
         >
-          <ButtonWithArrow>
+          <ButtonWithArrow disableRipple>
             Get the app <ArrowRightAltIcon />
           </ButtonWithArrow>
           <ScoresContainer Icon={AppleIcon} value={4.6} />

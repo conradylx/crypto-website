@@ -31,7 +31,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|webp)$/,
+        test: /\.(png|jpe?g|gif|webp|ico)$/,
         loader: "file-loader",
         options: {
           name: "assets/[name].[ext]",
@@ -54,6 +54,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
       title: "Frontend",
+      favicon: "./public/favicon.ico",
     }),
   ],
   devServer: {
