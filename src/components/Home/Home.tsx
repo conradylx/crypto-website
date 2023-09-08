@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
+import HeadingContainer from "./Heading/HeadingContainer";
 
 function Home() {
-  return <Box>Home</Box>;
+  return <HeadingContainer />;
 }
 
 export default Home;

@@ -1,6 +1,5 @@
-import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, Button, styled } from "@mui/material";
+import { AppBar, Button, Hidden, styled } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
@@ -17,40 +16,44 @@ const pages = [
   { title: "Crypto", url: "/crypto" },
   { title: "Company", url: "/company" },
 ];
-const StyledAppBar = styled(AppBar)({
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
   borderBottom: "1px solid black",
-});
+  [theme.breakpoints.down("md")]: {
+    borderBottom: "none",
+  },
+}));
 
-const ExclusiveButton = styled(Button)({
-  padding: ".55em",
-  border: "1px solid black",
-  borderRadius: "2em",
-  margin: "0 .4em",
-  color: "inherit",
-  fontFamily: "inherit",
-  fontSize: "17px",
-  textTransform: "none",
-  "&:hover": {
-    filter: "brightness(.5)",
-    background: "transparent",
-  },
-  "&:active": {
-    background: "none",
-  },
-});
+const commonButtonStyles = `
+  color: inherit;
+  font-size: 17px;
+  text-transform: none;
+  font-weight: 400;
+`;
 
-const BookmarkButton = styled(Button)({
-  color: "inherit",
-  background: "none",
-  transition: "color .3s ease-in-out",
-  fontFamily: "inherit",
-  fontSize: "17px",
-  textTransform: "none",
-  "&:hover": {
-    color: "crimson",
-  },
-});
+const ExclusiveButton = styled(Button)`
+  ${commonButtonStyles}
+  border: 1px solid black;
+  border-radius: 2em;
+  margin: 0 0.4em;
+  width: 115px;
+  &:hover {
+    filter: brightness(0.5);
+    background: transparent;
+  }
+  &:active {
+    background: none;
+  }
+`;
+
+const PageButton = styled(Button)`
+  ${commonButtonStyles}
+  background: none;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.light};
+  }
+`;
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -69,7 +72,19 @@ function Navbar() {
     <StyledAppBar position="static" color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <PageButton
+            disableRipple
+            sx={{
+              my: 2,
+              color: "yellow",
+              fontWeight: "800",
+              fontSize: "30px",
+              margin: "0 20px 0 -20px",
+            }}
+            href="/"
+          >
+            RASH
+          </PageButton>
           <Box
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, ml: -2 }}
           >
@@ -112,7 +127,7 @@ function Navbar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 2 }}
           >
             {pages.map((page) => (
-              <BookmarkButton
+              <PageButton
                 disableRipple
                 key={page.title}
                 sx={{
@@ -123,12 +138,14 @@ function Navbar() {
                 href={page.url}
               >
                 {page.title}
-              </BookmarkButton>
+              </PageButton>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <ExclusiveButton disableRipple>Exchange</ExclusiveButton>
             <ExclusiveButton disableRipple>Get the app</ExclusiveButton>
+            <Hidden mdDown>
+              <ExclusiveButton disableRipple>Exchange</ExclusiveButton>
+            </Hidden>
           </Box>
         </Toolbar>
       </Container>
