@@ -11,10 +11,10 @@ import * as React from "react";
 
 const pages = [
   { title: "Main", url: "/" },
-  { title: "Earn", url: "/earn" },
+  { title: "Gain", url: "/garn" },
   { title: "Account", url: "/account" },
-  { title: "Crypto", url: "/crypto" },
-  { title: "Company", url: "/company" },
+  { title: "Currency", url: "/currency" },
+  { title: "Business", url: "/business" },
 ];
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
@@ -36,7 +36,7 @@ const ExclusiveButton = styled(Button)`
   border: 1px solid black;
   border-radius: 2em;
   margin: 0 0.4em;
-  width: 115px;
+  width: 125px;
   &:hover {
     filter: brightness(0.5);
     background: transparent;
@@ -83,7 +83,7 @@ function Navbar() {
             }}
             href="/"
           >
-            RASH
+            NASH
           </PageButton>
           <Box
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, ml: -2 }}
@@ -142,9 +142,9 @@ function Navbar() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <ExclusiveButton disableRipple>Get the app</ExclusiveButton>
+            <ExclusiveButton disableRipple>Exchange</ExclusiveButton>
             <Hidden mdDown>
-              <ExclusiveButton disableRipple>Exchange</ExclusiveButton>
+              <ExclusiveButton disableRipple>Get the app</ExclusiveButton>
             </Hidden>
           </Box>
         </Toolbar>
