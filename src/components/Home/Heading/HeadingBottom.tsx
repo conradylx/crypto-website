@@ -31,7 +31,7 @@ const WinnerParagraph = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const RightBox = styled(Typography)(({ theme }) => ({
+const RightBox = styled(Box)(({ theme }) => ({
   margin: "1.7em 0 0 6em",
   display: "flex",
   flexDirection: "row",

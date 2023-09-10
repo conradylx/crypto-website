@@ -16,7 +16,11 @@ function HeadingContainer() {
         width="45%"
         component="img"
         src={home1}
-        sx={{ maxWidth: "85vw", borderRadius: "5%" }}
+        sx={{
+          maxWidth: "85vw",
+          objectFit: "contain",
+          borderRadius: "5%",
+        }}
       />
     </Container>
   );

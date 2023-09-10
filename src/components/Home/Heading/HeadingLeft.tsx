@@ -32,6 +32,7 @@ const ButtonWithArrow = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down("md")]: {
     fontSize: "12px",
+    backgroundColor: theme.palette.primary.light,
   },
 }));
 
@@ -61,12 +62,11 @@ function HeadingLeft() {
         </WhiteStyledTypography>
         <Paragraph>
           Grow your money, buy and trade crypto and earn{" "}
-          <Typography
-            color={theme.palette.primary.light}
-            sx={{ fontSize: "1.3vw", display: "inline" }}
+          <span
+            style={{ color: theme.palette.primary.light, fontSize: "1.3vw" }}
           >
             7.5%*
-          </Typography>{" "}
+          </span>
           on your savings.
         </Paragraph>
         <Box
