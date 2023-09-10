@@ -1,4 +1,3 @@
-import { Box, styled } from "@mui/material";
 import banks from "../../assets/nash-mobile-banking.webp";
 import GenericSection from "./GenericSection/GenericSection";
 import {

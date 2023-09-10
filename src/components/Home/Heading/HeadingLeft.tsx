@@ -30,19 +30,36 @@ const ButtonWithArrow = styled(Button)(({ theme }) => ({
   "&:active": {
     backgroundColor: theme.palette.primary.light,
   },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "12px",
+  },
+}));
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontSize: "1.6vw",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "10px",
+  },
+}));
+
+const Paragraph = styled(Typography)(({ theme }) => ({
+  fontSize: "1.3vw",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "8px",
+  },
 }));
 
 function HeadingLeft() {
   return (
     <Box width="55%">
       <Box sx={{ borderBottom: "1px solid white", width: "90%" }}>
-        <Typography sx={{ fontSize: "1.6vw" }}>
+        <StyledTypography>
           The smart alternative for your everyday finances
-        </Typography>
+        </StyledTypography>
         <WhiteStyledTypography>
           Grow your money the modern way
         </WhiteStyledTypography>
-        <Typography sx={{ fontSize: "1.3vw" }}>
+        <Paragraph>
           Grow your money, buy and trade crypto and earn{" "}
           <Typography
             color={theme.palette.primary.light}
@@ -51,7 +68,7 @@ function HeadingLeft() {
             7.5%*
           </Typography>{" "}
           on your savings.
-        </Typography>
+        </Paragraph>
         <Box
           sx={{
             display: "flex",

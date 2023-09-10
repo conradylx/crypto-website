@@ -11,5 +11,8 @@ export const theme = createTheme({
       main: yellow[500],
       dark: yellow[700],
     },
+    secondary: {
+      main: "#00C4FF",
+    },
   },
 });

@@ -11,6 +11,36 @@ const YellowStyledTypography = styled(Typography)(({ theme }) => ({
   paddingBottom: ".25em",
 }));
 
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  marginBottom: "4em",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
+}));
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  width: "50%",
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+}));
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontSize: "1.7vw",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "11px",
+  },
+}));
+
+const StyledParagraph = styled(Typography)(({ theme }) => ({
+  fontSize: "1.3vw",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "9px",
+  },
+}));
+
 export default function GenericSection({
   primaryText,
   secondaryText,
@@ -19,13 +49,7 @@ export default function GenericSection({
   picture,
 }: IGenericSection) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        marginBottom: "4em",
-      }}
-    >
+    <Container>
       {picture ? (
         <Box
           component="img"
@@ -36,36 +60,22 @@ export default function GenericSection({
           }}
         />
       ) : (
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+        <StyledBox>
           <YellowStyledTypography>{primaryText}</YellowStyledTypography>
-        </Box>
+        </StyledBox>
       )}
-      <Box sx={{ width: { xs: "100% ", md: "50%" } }}>
+      <StyledBox>
         {picture && (
           <YellowStyledTypography>{primaryText}</YellowStyledTypography>
         )}
-        <Typography
-          sx={{
-            fontSize: "1.7vw",
-          }}
-          color={"white"}
-        >
-          {secondaryText}
-        </Typography>
+        <StyledTypography color={"white"}>{secondaryText}</StyledTypography>
         {optionalText && (
-          <Typography
-            sx={{
-              fontSize: "1.7vw",
-            }}
-            color={theme.palette.primary.light}
-          >
+          <StyledTypography color={theme.palette.primary.light}>
             {optionalText}
-          </Typography>
+          </StyledTypography>
         )}
-        <Typography mt={3} sx={{ fontSize: "1.3vw" }}>
-          {paragraph}
-        </Typography>
-      </Box>
-    </Box>
+        <StyledParagraph mt={3}>{paragraph}</StyledParagraph>
+      </StyledBox>
+    </Container>
   );
 }
